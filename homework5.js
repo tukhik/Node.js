@@ -1,18 +1,18 @@
 
 //5
-var fs = require("fs"); 
-var os = require('os')
+const fs = require("fs"); 
+const os = require('os')
 
-var currentTime=function(){
-	var date = new Date();
-	var h = date.getHours();
-	var m = date.getMinutes();
-	var s = date.getSeconds();
+const currentTime=function(){
+	const date = new Date();
+	const h = date.getHours();
+	const m = date.getMinutes();
+	const s = date.getSeconds();
 	return "_" + h + "_"+ m +"_" + s;
 }
- var str='';
+ let str='';
 
-for(var i = 1; i < 5; i++){
+for(let i = 1; i < 5; i++){
 	fs.readFile('homework'+`${i}` + '.js', function (err, data) {  
 	   if (err) {  
 	       return console.error(err);  
