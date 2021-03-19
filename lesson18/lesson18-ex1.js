@@ -17,4 +17,24 @@ new Promise((resolve, reject) => {
 )
   
 
+//tarberak 2
+/*const random = require('random');
 
+function getNumber() {
+    return new Promise((resolve, reject) => {
+        const number = random.int(0, 10);
+
+        if (number < 5) {
+            reject(new Error('Number is less then 5'));
+        } else {
+            resolve(number);
+        }
+    });
+}
+
+getNumber().then((number) => {
+    console.log(number);
+}).catch((err) => {
+    console.log(err.message);
+})
+*/
