@@ -4,21 +4,20 @@
 
 
 const fs = require('fs');
-const {Transform} = require('stream');  
-
-
-
-const readableStream = fs.createReadStream('./input.txt', {
-	highWaterMark: 1
-});
-
-const writeStream =fs.createWriteStream('homeworkw5.txt');
+const {Transform, Readable} = require('stream');  
 
 
 class RemoveSpecialChars extends Transform {
 	_transform(chunk, encoding, next) {
-        this.push(chunk.toString().toUpperCase());
+		 this.push(chunk.toString().replace(/[^a-zA-Z0-9\n\s\t]/g, ''));
         next();
 	}
 
 }
+const transform = new RemoveSpecialChars();
+
+const readable = fs.createReadStream('homeworkw5.txt');
+const writeStream = fs.createWriteStream('homeworkr5.txt');
+
+readable.pipe(transform).pipe(writeStream);
+
